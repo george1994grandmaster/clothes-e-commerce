@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { RootStore } from './store';
 import axios from 'axios';
-import { Dataİtem, Sidebar } from '../types'; 
+import { DataItem, Sidebar } from '../types'; 
 
 const initialState: Sidebar = {
-  data: [],
+  data: [] as any,
   status: 'idle',
   error: null,
 };
@@ -13,7 +13,7 @@ export const getSidebarİtems = createAsyncThunk(
   'sidebar/fetchSidebarİtems',
   async ({ sidebarİtems }: { sidebarİtems: string }) => {
     try {
-      const response = await axios.get<Dataİtem[]>(`/api/datas?category=${sidebarİtems}`);
+      const response = await axios.get<DataItem[]>(`/api/datas?category=${sidebarİtems}`);
       return response.data;
     } catch (error) {
       throw new Error('Failed to fetch product');
@@ -30,7 +30,7 @@ const sidebarSlice = createSlice({
       .addCase(getSidebarİtems.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(getSidebarİtems.fulfilled, (state, action: PayloadAction<Dataİtem[]>) => {
+      .addCase(getSidebarİtems.fulfilled, (state, action: PayloadAction<DataItem[]>) => {
         state.status = 'succeeded';
         state.data = action.payload;
         state.error = null;
