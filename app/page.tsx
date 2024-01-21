@@ -68,8 +68,8 @@ export default function About() {
             <AnimatedText border="yellow" bgColor="dark" textColor="yellow"/>
           </div>
          <div className="container">
-          <div className="py-20">
-            <img src={landingData[0].bottomBannerİm} alt="landingBannerİmg"  className="lg:h-bannerHeight"/>
+          <div className="py-20">update img
+            <img src={landingData[0].bottomBannerİmg} alt="landingBannerİmg"  className="lg:h-bannerHeight"/>
           </div>
          </div>
         </>
