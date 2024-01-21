@@ -32,7 +32,7 @@ export default function About() {
             <p className="text-lg text-white font-medium py-10">{aboutData[0].bannerText}</p>
           </div>
           <div className="my-10">
-            <AnimatedText  textColor="dark"/>
+            <AnimatedText textColor="dark"/>
           </div>
           <div className="container">
             <div className="py-12">

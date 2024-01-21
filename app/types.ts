@@ -45,4 +45,5 @@ export interface Sliderİtems {
 export interface AnimatedText {
   textColor: string;
   bgColor?: string; 
+  border?: string;
 }

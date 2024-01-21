@@ -54,6 +54,19 @@ p, span, h1, h2, h3, h4, h5{
   to { transform: translateX(0); }
 }
 
+.scrollContainer.bg-yellow {
+  background-color: #D9EC00;
+}
+
+.scrollContainer.bg-dark {
+  background-color: #1D1D1D;
+}
+
+.scrollContainer.border-yellow {
+  border-top: 1px solid #D9EC00;
+  border-bottom: 1px solid #D9EC00;
+}
+
 .scrollText {
   flex-shrink: 0;
   margin-left: 4px;
@@ -63,6 +76,14 @@ p, span, h1, h2, h3, h4, h5{
   font-weight: bold; 
   white-space: nowrap;
   animation: scrollText 70s linear infinite;
+}
+
+.scrollText.text-dark {
+  color: #1D1D1D;
+}
+
+.scrollText.text-yellow {
+  color:#D9EC00;
 }
 
 .swiper-button-next, .swiper-button-prev {

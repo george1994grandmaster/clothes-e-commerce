@@ -3,11 +3,11 @@ export const posts = [
     landing: [
       {
         topBannerİmg: "/images/winterHats1.png",
-        bottomBannerİmg: "/images/aboutBanner.png",
         topBannerText: "Style defined. Hats reimagined. Discover the perfect cap that speaks to you. Embrace individuality with our curated collection. Elevate your look, redefine your hat game. Unleash your unique style today." ,
         layoutTitle: "Chic Comfort: Elevate Your Style with Our Exclusive Hut and Cap Collection",
         layoutText: "Discover the perfect blend of style and comfort with our curated collection of huts and caps. Elevate your look with our fashion-forward designs, crafted for every occasion. From casual elegance to outdoor adventures, find the ideal accessory that complements your unique lifestyle. Embrace the essence of effortless style – explore our collection today and redefine your hat game.",
         layoutİmg: "/images/hutGrey.png",
+        bottomBannerİmg: "/images/winterHats.png",
         promo: [
           {
             id: 1,
@@ -78,7 +78,7 @@ export const posts = [
       },
       {
         id: 3,
-        title: "PUMA Running Unisex Cap",
+        title: "Puma Running Unisex Cap",
         category: "PUMA Running Unisex Cap",
         src: "/images/PUMA_Running_Unisex_Cap2.png",
         price: "4,768",
@@ -92,7 +92,7 @@ export const posts = [
       },
       {
         id: 5,
-        title: "puma Evercat Running Cap",
+        title: "Puma Evercat Running Cap",
         category: "hp",
         src: "/images/puma_Evercat_Running_Cap2.png",
         price: "5,362",
@@ -106,7 +106,7 @@ export const posts = [
       },
       {
         id: 7,
-        title: "nike Heritage86 Cap",
+        title: "Nike Heritage86 Cap",
         category: "hp",
         src: "/images/nike-Heritage86_Cap.png",
         price: "5,362",
@@ -120,7 +120,7 @@ export const posts = [
       },
       {
         id: 9,
-        title: "nike AeroBill Classic99 Cap",
+        title: "Nike AeroBill Classic99 Cap",
         category: "hp",
         src: "/images/nike-AeroBill_Classic99_Cap1.png",
         price: "5,362",
@@ -134,21 +134,21 @@ export const posts = [
       },
       {
         id: 11,
-        title: "black wool trilby hat",
+        title: "Black Wool Trilby hat",
         category: "hp",
         src: "/images/black_wool_trilby_hat1.png",
         price: "5,362",
       },
       {
         id: 12,
-        title: "qenja hat",
+        title: "Qenja hat",
         category: "hp",
         src: "/images/qenja_hat1.png",
         price: "5,362",
       },
       {
         id: 13,
-        title: "qenja_hat",
+        title: "Qenja_hat",
         category: "hp",
         src: "/images/qenja_hat2.png",
         price: "5,362",

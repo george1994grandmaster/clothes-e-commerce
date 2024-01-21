@@ -44,7 +44,7 @@ export default function About() {
             </div>
           </div>
           <div className="">
-            <AnimatedText textColor="dark"/>
+            <AnimatedText bgColor="yellow" textColor="dark"/>
           </div>
           <div className="container">
             <div className="py-20">
@@ -65,8 +65,13 @@ export default function About() {
             }
           </div>
           <div className="">
-            <AnimatedText textColor="yellow"/>
+            <AnimatedText border="yellow" bgColor="dark" textColor="yellow"/>
           </div>
+         <div className="container">
+          <div className="py-20">
+            <img src={landingData[0].bottomBannerİmg} alt="landingBannerİmg"  className="lg:h-bannerHeight"/>
+          </div>
+         </div>
         </>
       }
     </>
