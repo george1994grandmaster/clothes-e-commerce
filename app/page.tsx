@@ -69,7 +69,7 @@ export default function About() {
           </div>
          <div className="container">
           <div className="py-20">
-            <img src={landingData[0].bottomBannerİmg} alt="landingBannerİmg"  className="lg:h-bannerHeight"/>
+            <img src={landingData[0].bottomBannerİm} alt="landingBannerİmg"  className="lg:h-bannerHeight"/>
           </div>
          </div>
         </>
