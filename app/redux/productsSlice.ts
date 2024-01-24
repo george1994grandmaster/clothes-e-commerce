@@ -30,7 +30,7 @@ const initialState: DataState = {
   productQuantity: []
 };
 
-export const getProducts = createAsyncThunk('dat/get', async ({ products, dataCount }: { products: string; dataCount?: number }) => {
+export const getProducts = createAsyncThunk('data/getProducts', async ({ products, dataCount }: { products: string; dataCount?: number }) => {
   try {
     const response = await axios.get<any>(`/api/datas?category=${products}${dataCount ? `&dataCount=${dataCount}` : ''}`);
     return response.data;

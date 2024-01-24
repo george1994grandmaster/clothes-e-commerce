@@ -1,6 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect  } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSliderProducts, getProductİtems  } from '../redux/productsSliderSlice'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import  { Navigation } from 'swiper/modules';
@@ -13,9 +15,17 @@ import Link from 'next/link'
 
 SwiperCore.use([Navigation]);
 
-export default function Slider({ sliderParams }: Sliderİtems){
- 
+//export default function Slider({ sliderParams }: Sliderİtems){
+  export default function Slider(){
   const swiperRef = useRef<SwiperCore | null>(null);
+  const dispatch = useDispatch();
+  const productsData = useSelector(getProductİtems);
+
+  let products = "products";
+
+  useEffect(() => {
+   dispatch(getSliderProducts({products}) as any);
+  }, [dispatch]);
   
   return (
     <div className="">
@@ -42,7 +52,7 @@ export default function Slider({ sliderParams }: Sliderİtems){
           swiperRef.current = swiper;
         }}
       >
-       {sliderParams && sliderParams.map((sliderParam) => (
+       {productsData && productsData.map((sliderParam) => (
         <SwiperSlide className="px-4" style={{ height: "350px"}} key={sliderParam.id}>
           <div className="w-full h-full shadow-shadow hover:shadow-hoverShadow transition duration-150 ease-out">
             <Link href="" className="flex flex-col  justify-center items-center h-full p-3 h-full w-full">

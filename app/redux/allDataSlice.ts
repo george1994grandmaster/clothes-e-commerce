@@ -11,7 +11,7 @@ const initialState: any = {
 export const getData = createAsyncThunk('data/getData', async ({ param, dataCount }: { param: string; dataCount?: number }) => {
  
   try {
-    const response = await axios.get<any>(`/api/datas?category=${param}${dataCount ? `&dataCount=${dataCount}` : ''}`);
+    const response = await axios.get<any>(`/api/datas?category=${param}`);
     return response.data;
   } catch (error) {
     return Promise.reject(new Error('Failed to fetch products'));

@@ -2,20 +2,22 @@ import { configureStore } from "@reduxjs/toolkit";
 import dataReducer from './allDataSlice';
 import productReducer from './productsSlice';
 import cartReducer from './cartSlice';
-import sidebarSlice from './sidebarSlice';
-import categorieSlice from './categorieProductSlice';
-import searchProductSlice from './searchProductSlice';
-import actionSlice from './searchProductSlice';
+import sidebarReducer from './sidebarSlice';
+import categorieReducer from './categorieProductSlice';
+import searchProductReducer from './searchProductSlice';
+import actionReducer from './searchProductSlice';
+import productsSliderReducer from './productsSliderSlice';
 
 export const store = configureStore({
   reducer: {
     data: dataReducer,
     product: productReducer,
     cart: cartReducer,
-    sidebar: sidebarSlice,
-    categorie: categorieSlice,
-    search: searchProductSlice,
-    action :actionSlice,
+    sidebar: sidebarReducer,
+    categorie: categorieReducer,
+    search: searchProductReducer,
+    productAction: actionReducer,
+    slider: productsSliderReducer,
   },
 });
 

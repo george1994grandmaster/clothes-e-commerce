@@ -61,7 +61,7 @@ export default function Landing() {
               <img src={landingData[0].topBannerİmg} alt="landingBannerİmg"  className="lg:h-bannerHeight"/>
             </div>
             {
-              productsData && <Slider sliderParams={productsData}/>
+              productsData && <Slider/>
             }
           </div>
           <div className="">

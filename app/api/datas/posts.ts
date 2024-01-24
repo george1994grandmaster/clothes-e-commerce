@@ -155,4 +155,11 @@ export const posts = [
       },
     ],
   },
+  {
+    shop: [
+      {
+        shopBanner: "/images/shopBanner.png"
+      }
+    ]
+  }
 ];
