@@ -8,7 +8,7 @@ const initialState: any = {
   error: null,
 };
 
-export const getData = createAsyncThunk('data/getData', async ({ param, dataCount }: { param: string; dataCount?: number }) => {
+export const getData = createAsyncThunk('data/getData', async ({ param }: { param: string }) => {
  
   try {
     const response = await axios.get<any>(`/api/datas?category=${param}`);

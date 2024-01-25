@@ -21,17 +21,12 @@ const config: Config = {
       borderColor: {
         yellow: '#D9EC00',
       },
-      height: {
-       layout: "35vw",
-       promo: "20vw",
-       bannerHeight: '480px'
-      },
       boxShadow: {
         shadow: "0 0 10px hsla(0,0%,50%,.5)",
         hoverShadow: '0 0 10px #D9EC00',
       },
       screens: {
-          
+        'md': '992px', 
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',

@@ -12,6 +12,7 @@ import { Sliderİtems, SliderProps } from '../types';
 import ProductListArrowLeft  from './svg/productsArrowLeft';
 import ProductListArrowRight  from './svg/productsArrowRight';
 import Link from 'next/link'
+import Image from 'next/image';
 
 SwiperCore.use([Navigation]);
 
@@ -25,7 +26,7 @@ SwiperCore.use([Navigation]);
 
   useEffect(() => {
    dispatch(getSliderProducts({products}) as any);
-  }, [dispatch]);
+  }, [dispatch, products]);
   
   return (
     <div className="">
@@ -56,8 +57,14 @@ SwiperCore.use([Navigation]);
         <SwiperSlide className="px-4" style={{ height: "350px"}} key={sliderParam.id}>
           <div className="w-full h-full shadow-shadow hover:shadow-hoverShadow transition duration-150 ease-out">
             <Link href="" className="flex flex-col  justify-center items-center h-full p-3 h-full w-full">
-              <div className="mb-6">
-                <img src={sliderParam.src} className="block object-contain" alt="productSrc" style={{ height: "180px", maxHeight: ""}}/>
+              <div className="w-full mb-6 shop-item">
+                <Image
+                  src={sliderParam.src}
+                  alt="productSrcImg"
+                  layout="responsive"
+                  width={500} 
+                  height={180}
+                />
               </div>
               <div className="">
                 <p className="text-lg font-medium text-lightGrey mb-2"> {sliderParam.title}</p>

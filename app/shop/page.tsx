@@ -7,6 +7,7 @@ import { getAllData, getData } from '../redux/allDataSlice';
 import Slider from '../components/slider'
 import AnimatedText from "../components/animatedText";
 import Link from 'next/link'
+import Image from 'next/image';
 
 
 export default function Landing() {
@@ -23,7 +24,7 @@ export default function Landing() {
   useEffect(() => {
     dispatch(getProducts({products, dataCount}) as any);
     dispatch(getData({param}) as any);
-  }, [dispatch]);
+  }, [dispatch, param, products, dataCount]);
 
   return (
     <>
@@ -36,11 +37,17 @@ export default function Landing() {
           ))}
         </ul>
         <div className="grid grid-cols-3 gap-8 py-10">
-          {productsData && productsData.map((item, idx) => (
-            <div className="shadow-shadow hover:shadow-hoverShadow transition duration-150 ease-out">
-              <Link href="" className="flex flex-col  justify-center items-center h-full p-3 h-full w-full">
-                <div className="mb-6">
-                  <img src={item.src} className="block object-contain" alt="productSrc" style={{ height: "180px", maxHeight: ""}}/>
+          {productsData && productsData.map((item) => (
+            <div className="shadow-shadow hover:shadow-hoverShadow transition duration-150 ease-out" key={item.id}>
+              <Link href="" className="flex flex-col justify-center items-center h-full p-3 h-full w-full">
+                <div className="w-full mb-6 shop-item">
+                  <Image
+                    src={item.src} 
+                    alt="productImg"
+                    layout="responsive"
+                    width={500} 
+                    height={180}
+                  />
                 </div>
                 <div className="">
                   <p className="text-lg font-medium text-lightGrey mb-2"> {item.title}</p>
@@ -51,8 +58,14 @@ export default function Landing() {
           ))}
         </div>
         {bannerImg[0] && 
-        <div className="py-20">
-          <img src={bannerImg[0].shopBanner} alt="shopBanner" className="h-auto lg:h-layout"/>
+        <div className="py-20 standart-img">
+          <Image
+            src={bannerImg[0].shopBanner}
+            alt="shopBanner"
+            layout="responsive"
+            width={500} 
+            height={440}
+          />
         </div>
         }
       </div>

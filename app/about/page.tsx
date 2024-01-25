@@ -6,6 +6,7 @@ import { getAllData, getData } from '../redux/allDataSlice';
 import AnimatedText from "../components/animatedText";
 import EmailArrow from "../components/svg/emailArrow";
 import Link from 'next/link'
+import Image from 'next/image';
 
 export default function About() {
  
@@ -16,7 +17,7 @@ export default function About() {
 
   useEffect(() => {
     dispatch(getData({param}) as any);
-  }, [dispatch]);
+  }, [dispatch, param]);
 
   
   return (
@@ -26,22 +27,34 @@ export default function About() {
         <>
           <div className='container'>
             <h1 className="text-4xl text-white font-bold py-4">{aboutData[0].bannerTitle}</h1>
-            <div className="py-10">
-              <img src={aboutData[0].bannerİmg} alt="aboutBannerİmg" className="lg:h-bannerHeight"/>
+            <div className="py-10 standart-img">
+              <Image
+                src={aboutData[0].bannerİmg}
+                alt="aboutBannerImg"
+                layout="responsive"
+                width={500} 
+                height={440}
+              />
             </div>
             <p className="text-lg text-white font-medium py-10">{aboutData[0].bannerText}</p>
           </div>
           <div className="my-10">
-            <AnimatedText textColor="dark"/>
+          <AnimatedText bgColor="yellow" textColor="dark"/>
           </div>
           <div className="container">
             <div className="py-12">
               <div className="flex items-end flex-wrap">
-                <div className="lg:w-1/2 mb-12 lg:mb-0">
-                  <img src={aboutData[0].layoutİmg} alt="layout-info" className="h-auto lg:h-layout"/>
+                <div className="w-full md:w-1/2 mb-12 md:mb-0 standart-img laptop">
+                  <Image
+                    src={aboutData[0].layoutİmg}
+                    alt="shopBanner"
+                    layout="responsive"
+                    width={500} 
+                    height={500}
+                  />
                 </div>
-                <div className="lg:w-1/2">
-                  <p className="lg:pl-14 text-lg font-medium text-lightGrey">{aboutData[0].layoutText}</p>
+                <div className="w-full md:w-1/2">
+                  <p className="text-lg md:pl-10 font-medium text-lightGrey">{aboutData[0].layoutText}</p>
                 </div>
               </div>
             </div>

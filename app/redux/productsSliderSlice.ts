@@ -30,7 +30,7 @@ const initialState: DataState = {
   productQuantity: []
 };
 
-export const getSliderProducts = createAsyncThunk('sliderData/getSliderProducts', async ({ products, dataCount }: { products: string; dataCount?: number }) => {
+export const getSliderProducts = createAsyncThunk('sliderData/getSliderProducts', async ({ products }: { products: string }) => {
   try {
     const response = await axios.get<any>(`/api/datas?category=${products}`);
     return response.data;
