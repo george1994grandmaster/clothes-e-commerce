@@ -30,7 +30,7 @@ const initialState: DataState = {
   productQuantity: []
 };
 
-export const getProducts = createAsyncThunk('data/getProducts', async ({ products, dataCount }: { products: string; dataCount?: number }) => {
+export const getProducts = createAsyncThunk('products/getProducts', async ({ products, dataCount }: { products: string; dataCount?: number }) => {
   try {
     const response = await axios.get<any>(`/api/datas?category=${products}${dataCount ? `&dataCount=${dataCount}` : ''}`);
     return response.data;
@@ -39,11 +39,11 @@ export const getProducts = createAsyncThunk('data/getProducts', async ({ product
   }
 });
 
-export const getProductByİd = createAsyncThunk(
-  'productByİd/getProductByİd',
-  async ({ product, productİd }: { product: string; productİd: string }) => {
+export const getProductById = createAsyncThunk(
+  'productByİd/getProductById',
+  async ({ products, productId }: { products: string; productId: string }) => {
     try {
-      const response = await axios.get<DataItem>(`/api/datas?category=${product}&productİd=${productİd}`);
+      const response = await axios.get<DataItem>(`/api/datas?category=${products}&productId=${productId}`);
       return response.data;
     } catch (error) {
       throw new Error('Failed to fetch product');
@@ -98,10 +98,10 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getProductByİd.pending, (state) => {
+      .addCase(getProductById.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(getProductByİd.fulfilled, (state, action: PayloadAction<DataItem>) => {
+      .addCase(getProductById.fulfilled, (state, action: PayloadAction<DataItem>) => {
         state.status = 'succeeded';
         const currentProduct = { ...action.payload }; 
         const existingProduct = state.selectedProducts.find(item => item.id === currentProduct.id);
@@ -110,7 +110,7 @@ const productSlice = createSlice({
         }
         state.error = null;
       })
-      .addCase(getProductByİd.rejected, (state) => {
+      .addCase(getProductById.rejected, (state) => {
         state.status = 'failed';
       })
       .addCase(getProducts.fulfilled, (state, action: PayloadAction<DataItem[]>) => {
@@ -122,6 +122,6 @@ const productSlice = createSlice({
 export default productSlice.reducer;
 export const { addToCart, decreaseFromCart, addToBasket } = productSlice.actions;
 export const loading = (state: RootStore) => state.product.status;
-export const getProductİtems = (state: RootStore) => state.product.products;
+export const getProductItems = (state: RootStore) => state.product.products;
 export const getSelectedProduct = (state: RootStore) => state.product.selectedProducts;
 export const getProductCart = (state: RootStore) => state.product.cart;

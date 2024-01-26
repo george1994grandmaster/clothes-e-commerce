@@ -136,6 +136,31 @@ p, span, h1, h2, h3, h4, h5, a{
   }
 }
 
+.selected-img img {
+  max-height: 400px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+@media(min-width: 640px) {
+  .selected-img img{
+    height: 440px !important;
+  }
+}
+
+.variation-img img {
+  display: none;
+  max-height: 110px;
+  height: 110px !important;
+  object-fit: contain !important;
+}
+
+@media(min-width: 640px) {
+  .variation-img img{
+    display: block;
+  }
+}
+
 
 
 

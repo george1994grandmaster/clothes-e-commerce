@@ -29,21 +29,25 @@ export interface CartItem {
   quantity: number;
 }
 
+export interface AnimatedText {
+  textColor: string;
+  bgColor?: string; 
+  border?: string;
+}
+
+export interface variations {
+  src: string;
+}
+
 export interface SliderProps {
   id: number;
   title: string;
   category: string;
   src: string;
   price: string;
-  quantity: number
+  quantity: number;
 }
 
-export interface Sliderİtems {
-  sliderParams: SliderProps[]; 
-}
-
-export interface AnimatedText {
-  textColor: string;
-  bgColor?: string; 
-  border?: string;
+export interface SliderItems {
+  sliderParams: (SliderProps | variations)[];
 }

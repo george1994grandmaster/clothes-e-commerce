@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts, getProductİtems, } from '../redux/productsSlice'; 
+import { getProducts, getProductItems, } from '../redux/productsSlice'; 
+import { getSliderProducts, getProductsSliderItems  } from '../redux/productsSliderSlice'; 
 import { getAllData, getData } from '../redux/allDataSlice';
-import Slider from '../components/slider'
+import Slider from '../components/productsSlider'
 import AnimatedText from "../components/animatedText";
 import Link from 'next/link'
 import Image from 'next/image';
@@ -13,18 +14,21 @@ import Image from 'next/image';
 export default function Landing() {
 
   const dispatch = useDispatch();
-  const productsData = useSelector(getProductİtems);
+  const productsData = useSelector(getProductItems);
   const bannerImg = useSelector(getAllData);
+  const productSliderDataData = useSelector(getProductsSliderItems);
   const [menuItems] = useState(["Caps", "Hats", "Winterhats"])
 
   let param = "shop";
   let products = "products";
   let dataCount = 6;
+  let sliderItems = "products";
   
   useEffect(() => {
     dispatch(getProducts({products, dataCount}) as any);
     dispatch(getData({param}) as any);
-  }, [dispatch, param, products, dataCount]);
+    dispatch(getSliderProducts({sliderItems}) as any);
+  }, [dispatch, param, products, dataCount, sliderItems]);
 
   return (
     <>
@@ -39,7 +43,7 @@ export default function Landing() {
         <div className="grid grid-cols-3 gap-8 py-10">
           {productsData && productsData.map((item) => (
             <div className="shadow-shadow hover:shadow-hoverShadow transition duration-150 ease-out" key={item.id}>
-              <Link href="" className="flex flex-col justify-center items-center h-full p-3 h-full w-full">
+              <Link href={`/product/${item.id}`} className="flex flex-col justify-center items-center h-full p-3 h-full w-full">
                 <div className="w-full mb-6 shop-item">
                   <Image
                     src={item.src} 
@@ -72,7 +76,7 @@ export default function Landing() {
       <div className="container">
         <AnimatedText border="yellow" bgColor="dark" textColor="yellow"/>
         <div className="py-12">
-          <Slider/>
+          <Slider sliderParams={productSliderDataData}/>
         </div>
       </div>
     </>

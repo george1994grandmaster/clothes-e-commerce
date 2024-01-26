@@ -68,6 +68,18 @@ export const posts = [
         category: "predator",
         src: "/images/Wool_Cuffed_Beanie_hat.png",
         price: "2,789",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/Wool_Cuffed_Beanie_hat.png",
+          },
+          {
+            src: "/images/Wool_Cuffed_Beanie_hat1.png",
+          },
+          {
+            src: "/images/Wool_Cuffed_Beanie_hat2.png",
+          }
+        ]
       },
       {
         id: 2,
@@ -75,6 +87,18 @@ export const posts = [
         category: "Straw Rolled Cowboy Hat",
         src: "/images/Straw_Rolled_Cowboy_Hat.png",
         price: "1,879",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/Straw_Rolled_Cowboy_Hat.png",
+          },
+          {
+            src: "/images/Straw_Rolled_Cowboy_Hat1.png",
+          },
+          {
+            src: "/images/Straw_Rolled_Cowboy_Hat2.png",
+          }
+        ]
       },
       {
         id: 3,
@@ -82,6 +106,18 @@ export const posts = [
         category: "PUMA Running Unisex Cap",
         src: "/images/PUMA_Running_Unisex_Cap2.png",
         price: "4,768",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/PUMA_Running_Unisex_Cap2.png",
+          },
+          {
+            src: "/images/PUMA_Running_Unisex_Cap.png",
+          },
+          {
+            src: "/images/PUMA_Running_Unisex_Cap1.png",
+          }
+        ]
       },
       {
         id: 4,
@@ -89,6 +125,18 @@ export const posts = [
         category: "Eddie Bauer Truckee Faux Fur Trapper Hat",
         src: "/images/Eddie_Bauer_Truckee_Faux_Fur_Trapper_Hat.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/Eddie_Bauer_Truckee_Faux_Fur_Trapper_Hat.png",
+          },
+          {
+            src: "/images/Eddie_Bauer_Truckee_Faux_Fur_Trapper_Hat1.png",
+          },
+          {
+            src: "/images/Eddie_Bauer_Truckee_Faux_Fur_Trapper_Hat2.png",
+          }
+        ]
       },
       {
         id: 5,
@@ -96,6 +144,18 @@ export const posts = [
         category: "hp",
         src: "/images/puma_Evercat_Running_Cap2.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/puma_Evercat_Running_Cap2.png",
+          },
+          {
+            src: "/images/puma_Evercat_Running_Cap.png",
+          },
+          {
+            src: "/images/puma_Evercat_Running_Cap1.png",
+          }
+        ]
       },
       {
         id: 6,
@@ -103,6 +163,18 @@ export const posts = [
         category: "hp",
         src: "/images/Genuine_Panama_Hat2.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/Genuine_Panama_Hat2.png",
+          },
+          {
+            src: "/images/Genuine_Panama_Hat1.png",
+          },
+          {
+            src: "/images/Genuine_Panama_Hat.png",
+          }
+        ]
       },
       {
         id: 7,
@@ -110,6 +182,18 @@ export const posts = [
         category: "hp",
         src: "/images/nike-Heritage86_Cap.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/nike-Heritage86_Cap.png",
+          },
+          {
+            src: "/images/nike-Heritage86_Cap1.png",
+          },
+          {
+            src: "/images/nike-Heritage86_Cap2.png",
+          }
+        ]
       },
       {
         id: 8,
@@ -117,6 +201,18 @@ export const posts = [
         category: "hp",
         src: "/images/Originals_Relaxed_Strapback_Cap1.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/Originals_Relaxed_Strapback_Cap1.png",
+          },
+          {
+            src: "/images/Originals_Relaxed_Strapback_Cap.png",
+          },
+          {
+            src: "/images/Originals_Relaxed_Strapback_Cap2.png",
+          }
+        ]
       },
       {
         id: 9,
@@ -124,6 +220,18 @@ export const posts = [
         category: "hp",
         src: "/images/nike-AeroBill_Classic99_Cap1.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/nike-AeroBill_Classic99_Cap1.png",
+          },
+          {
+            src: "/images/nike-AeroBill_Classic99_Cap.png",
+          },
+          {
+            src: "/images/nike-AeroBill_Classic99_Cap2.png",
+          }
+        ]
       },
       {
         id: 10,
@@ -131,6 +239,18 @@ export const posts = [
         category: "hp",
         src: "/images/Class_V_Reversible_Bucket_Hat.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/Class_V_Reversible_Bucket_Hat.png",
+          },
+          {
+            src: "/images/Class_V_Reversible_Bucket_Hat1.png",
+          },
+          {
+            src: "/images/Class_V_Reversible_Bucket_Hat2.png",
+          }
+        ]
       },
       {
         id: 11,
@@ -138,6 +258,18 @@ export const posts = [
         category: "hp",
         src: "/images/black_wool_trilby_hat1.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/black_wool_trilby_hat1.png",
+          },
+          {
+            src: "/images/black_wool_trilby_hat.png",
+          },
+          {
+            src: "/images/black_wool_trilby_hat2.png",
+          }
+        ]
       },
       {
         id: 12,
@@ -145,6 +277,18 @@ export const posts = [
         category: "hp",
         src: "/images/qenja_hat1.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/qenja_hat1.png",
+          },
+          {
+            src: "/images/qenja_hat.png",
+          },
+          {
+            src: "/images/qenja_hat2.png",
+          }
+        ]
       },
       {
         id: 13,
@@ -152,6 +296,18 @@ export const posts = [
         category: "hp",
         src: "/images/qenja_hat2.png",
         price: "5,362",
+        description: "lorem ipsum dolor consectetour sit amet lorem",
+        variations: [
+          {
+            src: "/images/qenja_hat2.png",
+          },
+          {
+            src: "/images/qenja_hat1.png",
+          },
+          {
+            src: "/images/qenja_hat.png",
+          }
+        ]
       },
     ],
   },

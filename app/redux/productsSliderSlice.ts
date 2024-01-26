@@ -30,9 +30,9 @@ const initialState: DataState = {
   productQuantity: []
 };
 
-export const getSliderProducts = createAsyncThunk('sliderData/getSliderProducts', async ({ products }: { products: string }) => {
+export const getSliderProducts = createAsyncThunk('sliderData/getSliderProducts', async ({ sliderItems }: { sliderItems: string }) => {
   try {
-    const response = await axios.get<any>(`/api/datas?category=${products}`);
+    const response = await axios.get<any>(`/api/datas?category=${sliderItems}`);
     return response.data;
   } catch (error) {
     return Promise.reject(new Error('Failed to fetch products'));
@@ -55,5 +55,5 @@ const productSliderSlice = createSlice({
 
 export default productSliderSlice.reducer;
 export const loading = (state: RootStore) => state.slider.status;
-export const getProductİtems = (state: RootStore) => state.slider.products;
+export const getProductsSliderItems = (state: RootStore) => state.slider.products;
 

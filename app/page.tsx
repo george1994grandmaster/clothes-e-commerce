@@ -3,9 +3,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllData, getData } from './redux/allDataSlice'; 
-import { getProducts, getProductİtems } from './redux/productsSlice'; 
+import { getProducts, getProductItems } from './redux/productsSlice'; 
+import { getSliderProducts, getProductsSliderItems  } from './redux/productsSliderSlice'; 
 import AnimatedText from "./components/animatedText";
-import Slider from './components/slider'
+import Slider from './components/productsSlider'
 import Link from 'next/link'
 import Image from 'next/image';
 
@@ -14,15 +15,18 @@ export default function Landing() {
  
   const dispatch = useDispatch();
   const landingData = useSelector(getAllData);
-  const productsData = useSelector(getProductİtems);
+  const productsData = useSelector(getProductItems);
+  const productSliderData = useSelector(getProductsSliderItems);
 
   let param = "landing"; 
   let products = "products";
+  let sliderItems = "products";
   
   useEffect(() => {
     dispatch(getData({param}) as any);
     dispatch(getProducts({products}) as any);
-  }, [dispatch, param, products]);
+    dispatch(getSliderProducts({sliderItems}) as any);
+  }, [dispatch, param, products, sliderItems]);
   
 
   return (
@@ -81,7 +85,7 @@ export default function Landing() {
               />
             </div>
             {
-              productsData && <Slider/>
+              productsData && <Slider sliderParams={productSliderData}/>
             }
           </div>
           <div className="">
