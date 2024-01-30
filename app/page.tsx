@@ -23,9 +23,8 @@ export default function Landing() {
   let sliderItems = "products";
   
   useEffect(() => {
-    dispatch(getData({param}) as any);
-    dispatch(getProducts({products}) as any);
-    dispatch(getSliderProducts({sliderItems}) as any);
+    dispatch(getData({ param }) as any)
+    .then(() => dispatch(getSliderProducts({ sliderItems }) as any));
   }, [dispatch, param, products, sliderItems]);
   
 

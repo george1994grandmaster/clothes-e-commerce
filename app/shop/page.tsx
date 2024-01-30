@@ -16,8 +16,8 @@ export default function Landing() {
   const dispatch = useDispatch();
   const productsData = useSelector(getProductItems);
   const bannerImg = useSelector(getAllData);
-  const productSliderDataData = useSelector(getProductsSliderItems);
-  const [menuItems] = useState(["Caps", "Hats", "Winterhats"])
+  const getSliderItems = useSelector(getProductsSliderItems);
+  const [menuItems] = useState(["All", "Caps", "Hats", "Winterhats"])
 
   let param = "shop";
   let products = "products";
@@ -25,9 +25,9 @@ export default function Landing() {
   let sliderItems = "products";
   
   useEffect(() => {
-    dispatch(getProducts({products, dataCount}) as any);
-    dispatch(getData({param}) as any);
-    dispatch(getSliderProducts({sliderItems}) as any);
+    dispatch(getProducts({ products, dataCount }) as any)
+      .then(() => dispatch(getData({ param }) as any))
+      .then(() => dispatch(getSliderProducts({ sliderItems }) as any));
   }, [dispatch, param, products, dataCount, sliderItems]);
 
   return (
@@ -76,7 +76,7 @@ export default function Landing() {
       <div className="container">
         <AnimatedText border="yellow" bgColor="dark" textColor="yellow"/>
         <div className="py-12">
-          <Slider sliderParams={productSliderDataData}/>
+          <Slider sliderParams={getSliderItems}/>
         </div>
       </div>
     </>

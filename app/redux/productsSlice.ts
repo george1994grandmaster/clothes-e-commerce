@@ -55,19 +55,19 @@ const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<number>) => {
+    addQuantity: (state, action: PayloadAction<number>) => {
       const productId = action.payload;
-      const productToUpdate = state.selectedProducts.find((item) => item.id === productId);
-      if (productToUpdate) {
+      const productExist = state.selectedProducts.find((item) => item.id === productId);
+      if (productExist) {
         state.selectedProducts = state.selectedProducts.map((item) =>
           item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
     },
-    decreaseFromCart: (state, action: PayloadAction<number>) => {
+    decreaseQuantity: (state, action: PayloadAction<number>) => {
       const productId = action.payload;
-      const productToUpdate = state.selectedProducts.find((item) => item.id === productId);
-      if (productToUpdate) {
+      const productExist = state.selectedProducts.find((item) => item.id === productId);
+      if (productExist) {
         state.selectedProducts = state.selectedProducts.map((item) =>
           item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
         );
@@ -79,7 +79,7 @@ const productSlice = createSlice({
       const cartFromLocalStorageString = localStorage.getItem('cart');
       const cartFromLocalStorage = cartFromLocalStorageString ? JSON.parse(cartFromLocalStorageString) as DataItem[] : [];
       const existingProduct = cartFromLocalStorage.find((item: DataItem) => item.id === currentProduct.id);
-    
+      console.log(existingProduct)
       if (!existingProduct) {
         const updatedPrice = formattedPrice * currentProduct.quantity;
         const updatedPriceString = updatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 });
@@ -120,7 +120,7 @@ const productSlice = createSlice({
 });
 
 export default productSlice.reducer;
-export const { addToCart, decreaseFromCart, addToBasket } = productSlice.actions;
+export const { addQuantity, decreaseQuantity, addToBasket } = productSlice.actions;
 export const loading = (state: RootStore) => state.product.status;
 export const getProductItems = (state: RootStore) => state.product.products;
 export const getSelectedProduct = (state: RootStore) => state.product.selectedProducts;

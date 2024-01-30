@@ -8,29 +8,29 @@ export async function GET(req: Request) {
   const dataCount = searchParams.get('dataCount');
   const productId = searchParams.get('productId');
   const productQuery = searchParams.get('productQuery');
-  const categorieQuery = searchParams.get('categorieQuery');
+  const productCategory = searchParams.get('productCategory');
   
   
   if (categoryName) {
     const categoryPosts = posts.find((post: any) => categoryName in post) as any;
-    let categoryArray = categoryPosts[categoryName];
+    let result = categoryPosts[categoryName];
     if (categoryName === 'products') {
       if(dataCount) {
-        categoryArray = categoryPosts[categoryName].slice(0, parseInt(dataCount))
+        result = categoryPosts[categoryName].slice(0, parseInt(dataCount))
       }
       if(productId) {
-        categoryArray = categoryPosts[categoryName][parseInt(productId) - 1];
+        result = categoryPosts[categoryName][parseInt(productId) - 1];
       }
       if (productQuery) {
-        categoryArray = categoryPosts[categoryName].filter((searchItem: DataItem) =>
+        result = categoryPosts[categoryName].filter((searchItem: DataItem) =>
         searchItem.title.toLowerCase().includes(productQuery)
         );
       }
-      if (categorieQuery) {
-        categoryArray = categoryPosts[categoryName].filter((item: any) =>
-        item.category === categorieQuery)
+      if (productCategory) {
+        result = categoryPosts[categoryName].filter((item: any) =>
+        item.category === productCategory)
       }
     } 
-    return NextResponse.json(categoryArray);
+    return NextResponse.json(result);
   }
 }

@@ -12,27 +12,19 @@ interface DataItem {
   price: string;
 }
 
-interface DataState {
+interface SliderItems  {
   products: DataItem[];
-  selectedProducts: DataItem[]; 
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-  cart: DataItem[],
-  productQuantity: DataItem[],
+  slideIndex: number;
 }
 
-const initialState: DataState = {
+const initialState: SliderItems = {
   products: [] || null,
-  selectedProducts: [] || null, 
-  status: 'idle',
-  error: null,
-  cart: [],
-  productQuantity: []
+  slideIndex: 0
 };
 
-export const getSliderProducts = createAsyncThunk('sliderData/getSliderProducts', async ({ sliderItems }: { sliderItems: string }) => {
+export const getSliderProducts = createAsyncThunk('sliderData/getSliderProducts', async ({ sliderItems, productCategory }: { sliderItems: string, productCategory?: string }) => {
   try {
-    const response = await axios.get<any>(`/api/datas?category=${sliderItems}`);
+    const response = await axios.get<any>(`/api/datas?category=${sliderItems}${productCategory ? `&productCategory=${productCategory}` : ''}`);
     return response.data;
   } catch (error) {
     return Promise.reject(new Error('Failed to fetch products'));
@@ -40,10 +32,12 @@ export const getSliderProducts = createAsyncThunk('sliderData/getSliderProducts'
 });
 
 const productSliderSlice = createSlice({
-  name: 'product',
+  name: 'productSlider',
   initialState,
   reducers: {
-    
+    changeSlideIndex: (state, action: PayloadAction<number>) => {
+      state.slideIndex = action.payload;
+    }, 
   },
   extraReducers: (builder) => {
     builder
@@ -54,6 +48,7 @@ const productSliderSlice = createSlice({
 });
 
 export default productSliderSlice.reducer;
-export const loading = (state: RootStore) => state.slider.status;
+export const { changeSlideIndex } = productSliderSlice.actions;
 export const getProductsSliderItems = (state: RootStore) => state.slider.products;
+export const getCurrentIndex = (state: RootStore) => state.slider.slideIndex;
 

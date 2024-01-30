@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         dark: '#1D1D1D',
         lightGrey: "rgba(255, 255, 255, 0.8)",
+        darkGrey: "rgba(163, 160, 160, 0.8)",
         yellow: "#D9EC00",
       },
       borderColor: {
