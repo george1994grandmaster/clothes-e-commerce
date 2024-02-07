@@ -152,9 +152,13 @@ p, span, h1, h2, h3, h4, h5, a{
   object-fit: contain !important;
 }
 
-.cart-img img {
-  height: 400px !important;
-  
+.cart-img {
+  width: 200px !important;
+}
+
+.cart-img img{
+  height: 150px !important;
+  object-fit: contain !important;
 }
 
 

@@ -53,30 +53,33 @@ export default function Product({ params }: Props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
- 
-  useEffect(() => {
-    if (viewCurrentProduct) {
-      const productId = parseInt(params.productId); 
-      const currentProduct = viewCurrentProduct.find(item => item.id === productId);
-      setCurrentProduct(currentProduct as DataItem | null); 
-    }
-  });
+
 
   useEffect(() => {
     if (params.productId && productCategory !== null) {
-      const productId = params.productId;
-      dispatch(getProductById({ products, productId }) as any)
+      dispatch(getProductById({ products, productId: params.productId }) as any)
         .then(() => {
-          dispatch(getSliderProducts({ sliderItems, productCategory }) as any)
+          dispatch(getSliderProducts({ sliderItems, productCategory }) as any);
         });
-      }
-  }, [dispatch, products, sliderItems, productCategory]);
+    }
+  }, [dispatch, products, sliderItems, productCategory, params.productId]);
+
+ 
+  useEffect(() => {
+    if (viewCurrentProduct) {
+      const productId = parseInt(params.productId);
+      const currentProduct = viewCurrentProduct.find(item => item.id === productId);
+      setCurrentProduct(currentProduct as DataItem | null);
+    }
+  }, [viewCurrentProduct, params.productId]);
+
+  
   
   useEffect(() => {
     if (params.productId && productCategory !== null) {
-        dispatch(changeSlideIndex(0));
-      }
-    }, [dispatch, products, sliderItems, productCategory]);
+      dispatch(changeSlideIndex(0));
+    }
+  }, [dispatch, products, sliderItems, productCategory, params.productId]);
 
 
   const handleProductSize = (index: number) => {
@@ -87,23 +90,23 @@ export default function Product({ params }: Props) {
     if (product) {
       dispatch(addQuantity(product.id as number));
     }
-  }
+  };
 
   const decreaseProductHandler = (product: DataItem) => {
-    if (product) {
+    if (product && product.quantity > 1) {
       dispatch(decreaseQuantity(product.id as number));
     }
-  }
+  };
 
   const addToBasketHandler = (product: DataItem) => {
     if (product) {
       dispatch(addToBasket(product as DataItem));
-      dispatch(displayTotalCount());
+      //dispatch(displayTotalCount());
     }
-  }
+  };
 
   const changeCurrentImg = (index: number) => {
-    dispatch(changeSlideIndex(index))
+    dispatch(changeSlideIndex(index));
   };
 
   return (
@@ -170,7 +173,7 @@ export default function Product({ params }: Props) {
                       alt="cartIcon"
                     />
                   </span>
-                  <span className="text-lg text-dark font-medium" onClick={() => addToBasketHandler(currentProduct as DataItem)}>BUY NOW</span>
+                  <span className="text-lg text-dark font-medium">BUY NOW</span>
                 </button>
               </div>
             </div>

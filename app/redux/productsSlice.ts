@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction, current } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootStore } from './store';
 
@@ -73,13 +73,42 @@ const productSlice = createSlice({
         );
       }
     },
+
+    addProduct: (state, action: PayloadAction<DataItem>) => {
+      const currentProduct = { ...action.payload };
+      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
+      const existingProduct = cartFromLocalStorage.find((item: DataItem) => item.id === currentProduct.id);
+      if (existingProduct) {
+        existingProduct.quantity ++;
+        const formattedPrice = parseFloat(existingProduct.price.replace(/[^0-9,.]+/g, '').replace(',', '.'));
+        const updatedPrice = formattedPrice / currentProduct.quantity * existingProduct.quantity;
+        const updatedPriceString = updatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 });
+        const updatedPriceStringWithComma = updatedPriceString.replace('.', ',');
+        existingProduct.price = updatedPriceStringWithComma;
+        localStorage.setItem('cart', JSON.stringify(cartFromLocalStorage));
+      }
+    },
+
+    decreaseProduct: (state, action: PayloadAction<DataItem>) => {
+      const currentProduct = { ...action.payload };
+      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
+      const existingProduct = cartFromLocalStorage.find((item: DataItem) => item.id === currentProduct.id);
+      if (existingProduct) {
+        existingProduct.quantity --;
+        const formattedPrice = parseFloat(existingProduct.price.replace(/[^0-9,.]+/g, '').replace(',', '.'));
+        const updatedPrice = formattedPrice / currentProduct.quantity * existingProduct.quantity;
+        const updatedPriceString = updatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 });
+        const updatedPriceStringWithComma = updatedPriceString.replace('.', ',');
+        existingProduct.price = updatedPriceStringWithComma;
+        localStorage.setItem('cart', JSON.stringify(cartFromLocalStorage));
+      }
+    },
+    
     addToBasket: (state, action: PayloadAction<DataItem>) => {
       const currentProduct = { ...action.payload };
       const formattedPrice = parseFloat(currentProduct.price.replace(/[^0-9,.]+/g, '').replace(',', '.'));
-      const cartFromLocalStorageString = localStorage.getItem('cart');
-      const cartFromLocalStorage = cartFromLocalStorageString ? JSON.parse(cartFromLocalStorageString) as DataItem[] : [];
+      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
       const existingProduct = cartFromLocalStorage.find((item: DataItem) => item.id === currentProduct.id);
-      console.log(existingProduct)
       if (!existingProduct) {
         const updatedPrice = formattedPrice * currentProduct.quantity;
         const updatedPriceString = updatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 });
@@ -120,7 +149,7 @@ const productSlice = createSlice({
 });
 
 export default productSlice.reducer;
-export const { addQuantity, decreaseQuantity, addToBasket } = productSlice.actions;
+export const { addQuantity, decreaseQuantity, addToBasket, addProduct, decreaseProduct } = productSlice.actions;
 export const loading = (state: RootStore) => state.product.status;
 export const getProductItems = (state: RootStore) => state.product.products;
 export const getSelectedProduct = (state: RootStore) => state.product.selectedProducts;
