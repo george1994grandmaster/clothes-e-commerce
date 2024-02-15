@@ -1,6 +1,5 @@
 "use client"
 
-
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {addProduct, decreaseProduct, addToBasket} from '../redux/productsSlice'; 
