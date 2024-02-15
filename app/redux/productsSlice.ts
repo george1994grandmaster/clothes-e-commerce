@@ -130,6 +130,9 @@ const productSlice = createSlice({
       .addCase(getProductById.pending, (state) => {
         state.status = 'loading';
         console.log(565)
+        console.log(565)
+        console.log(565)
+        console.log(565)
       })
       .addCase(getProductById.fulfilled, (state, action: PayloadAction<DataItem>) => {
         state.status = 'succeeded';
