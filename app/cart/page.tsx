@@ -1,11 +1,10 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {addProduct, decreaseProduct, addToBasket} from '../redux/productsSlice'; 
+import { useDispatch } from 'react-redux';
+import {addProduct, decreaseProduct} from '../redux/productsSlice'; 
 import AnimatedText from '../components/animatedText';
 import Image from 'next/image'
-import { current } from '@reduxjs/toolkit';
 
 interface DataItem {
   id: number;
