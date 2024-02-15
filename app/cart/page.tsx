@@ -32,6 +32,7 @@ export default function GetCategorieResult() {
       dispatch(addProduct(product as DataItem));
       const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
       setCartFromLocalStorage(cartFromLocalStorage);
+      console.log(65)
     }
   }
   
