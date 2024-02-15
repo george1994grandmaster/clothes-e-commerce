@@ -26,20 +26,11 @@ export default function GetCategorieResult() {
   }, []);
 
   const addProductCount = (product: DataItem) => {
-    if (product.quantity) {
-      dispatch(addProduct(product as DataItem));
-      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
-      setCartFromLocalStorage(cartFromLocalStorage);
-      console.log(47443)
-    }
+   
   }
   
   const decreaseProductCount = (product: DataItem) => {
-    if (product.quantity && product.quantity > 1) {
-      dispatch(decreaseProduct(product as DataItem));
-      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
-      setCartFromLocalStorage(cartFromLocalStorage);
-    }
+    
   }
   
   return (
