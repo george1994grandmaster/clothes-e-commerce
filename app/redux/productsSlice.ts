@@ -30,9 +30,9 @@ const initialState: DataState = {
   productQuantity: []
 };
 
-export const getProducts = createAsyncThunk('products/getProducts', async ({ products, dataCount }: { products: string; dataCount?: number }) => {
+export const getProducts = createAsyncThunk('products/getProducts', async ({ products, productCategory, dataCount }: { products: string; productCategory?: string; dataCount?: number }) => {
   try {
-    const response = await axios.get<any>(`/api/datas?category=${products}${dataCount ? `&dataCount=${dataCount}` : ''}`);
+    const response = await axios.get<any>(`/api/datas?category=${products}${dataCount ? `&dataCount=${dataCount}` : ''}${productCategory ? `&productCategory=${productCategory}` : ''}`);
     return response.data;
   } catch (error) {
     return Promise.reject(new Error('Failed to fetch products'));
@@ -129,10 +129,6 @@ const productSlice = createSlice({
     builder
       .addCase(getProductById.pending, (state) => {
         state.status = 'loading';
-        console.log(565)
-        console.log(565)
-        console.log(565)
-        console.log(565)
       })
       .addCase(getProductById.fulfilled, (state, action: PayloadAction<DataItem>) => {
         state.status = 'succeeded';

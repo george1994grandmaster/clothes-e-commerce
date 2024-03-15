@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, getProductItems, } from '../redux/productsSlice'; 
 import { getSliderProducts, getProductsSliderItems  } from '../redux/productsSliderSlice'; 
@@ -9,38 +10,43 @@ import Slider from '../components/productsSlider'
 import AnimatedText from "../components/animatedText";
 import Link from 'next/link'
 import Image from 'next/image';
+import ProductsMenu from '../components/productsMenu'
 
 
 export default function Shop() {
 
+  const router = useRouter()
   const dispatch = useDispatch();
   const productsData = useSelector(getProductItems);
   const bannerImg = useSelector(getAllData);
   const getSliderItems = useSelector(getProductsSliderItems);
-  const [menuItems] = useState(["All", "Caps", "Hats", "Winterhats"])
+  
+  
+  const productCategory = "";
+  const param = "shop";
+  const products = "products";
+  const dataCount = 6;
+  const sliderItems = "products";
 
-  let param = "shop";
-  let products = "products";
-  let dataCount = 6;
-  let sliderItems = "products";
   
   useEffect(() => {
-    dispatch(getProducts({ products, dataCount }) as any)
+    dispatch(getProducts({ products, dataCount, productCategory }) as any)
       .then(() => dispatch(getData({ param }) as any))
       .then(() => dispatch(getSliderProducts({ sliderItems }) as any));
   }, [dispatch, param, products, dataCount, sliderItems]);
 
+
+  /*const getSelectedProducts = (item: string) => {
+    
+    //dispatch(getProducts({ products, productCategory: item.toLowerCase() }) as any);
+    router.push('/category')}
+  };*/
+
   return (
     <>
       <div className="container">
-        <ul className="inline-flex items-center mb-4">
-          {menuItems.map((item, idx) => (
-            <li key={idx} className="group min-w-32 mr-5 border border-lightGrey text-center hover:bg-yellow transition duration-100 ease">
-              <Link href="" className="block px-5 py-2 text-lg font-medium tracking-widest group-hover:text-dark transition duration-100 ease">{item}</Link>
-            </li>
-          ))}
-        </ul>
-        <div className="grid grid-cols-3 gap-8 py-10">
+        <ProductsMenu/>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-10">
           {productsData && productsData.map((item) => (
             <div className="shadow-shadow hover:shadow-hoverShadow transition duration-150 ease-out" key={item.id}>
               <Link href={`/product/${item.id}`} className="flex flex-col justify-center items-center h-full p-3 h-full w-full">
@@ -73,8 +79,8 @@ export default function Shop() {
         </div>
         }
       </div>
+      <AnimatedText border="yellow" bgColor="dark" textColor="yellow"/>
       <div className="container">
-        <AnimatedText border="yellow" bgColor="dark" textColor="yellow"/>
         <div className="py-12">
           <Slider sliderParams={getSliderItems}/>
         </div>

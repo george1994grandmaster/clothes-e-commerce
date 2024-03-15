@@ -12,6 +12,7 @@ const config: Config = {
         lightGrey: "rgba(255, 255, 255, 0.8)",
         dark: '#1D1D1D',
         yellow: '#D9EC00',
+        orange: '#CB5B1'
       },
       colors: {
         dark: '#1D1D1D',

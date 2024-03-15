@@ -59,6 +59,10 @@ p, span, h1, h2, h3, h4, h5, a{
   background-color: #D9EC00;
 }
 
+.scrollContainer.bg-orange {
+  background-color: #CB5B1A;
+}
+
 .scrollContainer.bg-dark {
   background-color: #1D1D1D;
 }
@@ -153,6 +157,7 @@ p, span, h1, h2, h3, h4, h5, a{
 }
 
 .cart-img {
+  min-width: 200px !important;
   width: 200px !important;
 }
 

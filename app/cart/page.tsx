@@ -15,22 +15,36 @@ interface DataItem {
   price: string;
 }
 
+
 export default function GetCategorieResult() {
   const dispatch = useDispatch();
-  const [cartFromLocalStorage, setCartFromLocalStorage] = useState<DataItem[]>([]);
+  const [getCartFromStorage, setCartFromLocalStorage] = useState<DataItem[]>([]);
+  const [totalPrice, setTotalPrice] = useState<any>(0);
 
+ 
   useEffect(() => {
-    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
     setCartFromLocalStorage(cartFromLocalStorage);
-    //localStorage.removeItem('cart')
-  }, []);
+  }, []); 
 
+  
+  useEffect(() => {
+    const totalSum = getCartFromStorage.reduce((accumulator: any, currentItem: any) => {
+      const price = parseFloat(currentItem.price.replace(',', '.'));
+      return accumulator + price;
+    }, 0);
+    const formattedTotalSum = totalSum.toLocaleString('en-US', { minimumFractionDigits: 2 });
+    const finalTotalSum = formattedTotalSum.replace('.', ',');
+  
+    setTotalPrice(finalTotalSum);
+  }, [getCartFromStorage]);
+
+  
   const addProductCount = (product: DataItem) => {
     if (product.quantity) {
       dispatch(addProduct(product as DataItem));
       const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
       setCartFromLocalStorage(cartFromLocalStorage);
-      console.log(47443)
     }
   }
   
@@ -41,23 +55,29 @@ export default function GetCategorieResult() {
       setCartFromLocalStorage(cartFromLocalStorage);
     }
   }
+
+  
   
   return (
     <>
       <AnimatedText bgColor="yellow" textColor="dark"/>
       <div className="container">
-        <div className="w-10/12 mx-auto">
-          <h3 className="text-3xl text-white font-bold text-center mb-10">YOUR CART</h3>
+        <div className="w-11/12 mx-auto py-20">
+          <h3 className="text-3xl text-white font-bold text-center mb-12">YOUR CART</h3>
           {
-            cartFromLocalStorage && 
+            getCartFromStorage && 
             <>
-              <p className="text-2xl text-white font-medium mb-8">items summary({cartFromLocalStorage.length})</p>
-              <div className="flex">
-                <div className="w-full md:w-2/3">
-                  <div className="hidden md:flex flex-col gap-y-20">
-                    {cartFromLocalStorage.map((item: DataItem) => (
-                      <div key={item.id} className="flex items-center gap-x-20">
-                        <div className="cart-img">
+              <p className="text-2xl text-white font-medium mb-8">items summary
+              <span className="text-yellow ml-1">
+                ({getCartFromStorage.length})
+              </span>
+              </p>
+              <div className="flex flex-wrap justify-between">
+                <div className="w-full md:w-3/5 md:mb-0 mb-20">
+                  <div className="flex flex-col gap-y-20">
+                    {getCartFromStorage.map((item: DataItem) => (
+                      <div key={item.id} className="flex sm:flex-row flex-col sm:items-center gap-x-20">
+                        <div className="cart-img mb-10 sm:mb-0">
                           <Image
                             src={item.src}
                             width={500}
@@ -70,22 +90,43 @@ export default function GetCategorieResult() {
                           <p className="text-xl text-white font-medium mb-8"><span className="mr-2">Price:</span> {item.price}</p>
                           <div className="flex items-center">
                             <div className="flex items-center mr-10">
-                              <button className="mr-2" onClick={() => decreaseProductCount(item)}>-</button>
+                              <button className="mr-2" onClick={() => addProductCount(item)}>+</button>
                               <p className="mr-2 text-xl text-white font-medium">{item.quantity}</p>
-                              <button onClick={() => addProductCount(item)}>+</button>
+                              <button onClick={() => decreaseProductCount(item)}>-</button>
                             </div>
-                            <p className="text-xl text-white font-medium">Remove</p>
+                            <button className="text-xl text-white font-medium">Remove</button>
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
+                {totalPrice && 
+                <div className="w-full md:w-2/5 md:pl-10">
+                  <p className="text-2xl text-white font-medium mb-8">Order summary</p>
+                  <div className="mb-8 p-8 border border-l-lightGrey">
+                    <div className="flex justify-between mb-8">
+                      <p className="text-xl font-medium">Subtotal:</p>
+                      <span className="text-xl font-medium">${totalPrice}</span>
+                    </div>
+                    <div className="flex justify-between mb-8">
+                      <p className="text-xl font-medium">All Your Discounts:</p>
+                      <span className="text-xl font-medium">-</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <p className="text-xl font-medium">Grandtotal:</p>
+                      <span className="text-xl font-medium">${totalPrice}</span>
+                    </div>
+                  </div>
+                  <button className="w-full bg-yellow text-dark py-3 px-5 text-center font-bold">CHECKOUT</button>
+                </div>
+                }
               </div>
             </>
           }
         </div>
       </div>
+      <AnimatedText bgColor="orange" textColor="dark"/>
     </>
   );
 }

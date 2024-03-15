@@ -65,7 +65,7 @@ export const posts = [
       {
         id: 1,
         title: "Wool Cuffed Beanie",
-        category: "winter hats",
+        category: "winterhats",
         src: "/images/Wool_Cuffed_Beanie_hat.png",
         price: "2,789",
         description: "Introducing our Wool Cuffed Beanie Hat - a perfect blend of style and warmth for chilly days. Crafted with high-quality wool, this beanie offers a snug fit to keep you cozy in colder weather. The cuffed design adds a touch of fashion, making it a versatile accessory to effortlessly pair with any outfit. Stay stylish and warm with our Wool Cuffed Beanie Hat - the must-have accessory for the season!",
@@ -95,7 +95,7 @@ export const posts = [
       {
         id: 2,
         title: "Unisex The North Face Salty Dog Beanie",
-        category: "winter hats",
+        category: "winterhats",
         src: "/images/Unisex The North Face Salty Dog Beanie.png",
         price: "5,362",
         description: "Introducing the Unisex The North Face Salty Dog Beanie - a cozy and stylish winter essential for your cold-weather adventures. Crafted with high-quality materials, this beanie combines warmth with a touch of rugged outdoor style. Designed to keep you warm in chilly temperatures, the Salty Dog Beanie offers comfort for all your winter activities. Its durable construction ensures longevity, making it a reliable companion to withstand the winter elements. Featuring a classic beanie silhouette with a rib-knit pattern, it adds a timeless touch to your winter wardrobe. Suitable for various outdoor activities or casual outings, the Unisex The North Face Salty Dog Beanie is a versatile accessory. Embrace the winter season with warmth and style, courtesy of The North Face.",
@@ -155,7 +155,7 @@ export const posts = [
       {
         id: 4,
         title: "Eddie Bauer Truckee Faux Fur Trapper",
-        category: "winter hats",
+        category: "winterhats",
         src: "/images/Eddie_Bauer_Truckee_Faux_Fur_Trapper_Hat.png",
         price: "5,362",
         description: "Introducing the Eddie Bauer Truckee Faux Fur Trapper Hat - a stylish and cozy addition to your winter wardrobe. Crafted with attention to detail, this trapper hat combines fashion with functionality. The warm faux fur lining adds a touch of luxury and comfort, while the classic trapper style provides extra protection against cold winds. Perfect for outdoor activities, winter adventures, or just adding a chic touch to your cold-weather ensemble. Made with quality materials to ensure longevity and withstand the elements, the Eddie Bauer Truckee Faux Fur Trapper Hat is a timeless accessory for the colder months.",
