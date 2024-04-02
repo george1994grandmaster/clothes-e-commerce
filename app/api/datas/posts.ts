@@ -7,7 +7,7 @@ export const posts = [
         layoutTitle: "Chic Comfort: Elevate Your Style with Our Exclusive Hut and Cap Collection",
         layoutText: "Discover the perfect blend of style and comfort with our curated collection of huts and caps. Elevate your look with our fashion-forward designs, crafted for every occasion. From casual elegance to outdoor adventures, find the ideal accessory that complements your unique lifestyle. Embrace the essence of effortless style – explore our collection today and redefine your hat game.",
         layoutİmg: "/images/hutGrey.png",
-        bottomBannerİmg: "/images/winterHats.png",
+        bottomBannerİmg: "/images/winterhats.png",
         promo: [
           {
             id: 1,
