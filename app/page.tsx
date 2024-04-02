@@ -92,13 +92,7 @@ export default function Landing() {
           </div>
           <div className="container">
             <div className="py-20 standart-img">
-              <Image
-                src={landingData[0].bottomBannerİmg}
-                alt="landingBannerİmg"
-                layout="responsive"
-                width={500} 
-                height={440}
-              />
+              
             </div>
           </div>
         </>
