@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById, addQuantity, decreaseQuantity, addToBasket, getSelectedProduct } from '../../redux/productsSlice'; 
-import { displayTotalCount } from '../../redux/cartSlice';
 import ShopProductSlider from '../../components/selectedProductSlider';
 import { getCurrentIndex, getSliderProducts, getProductsSliderItems, changeSlideIndex } from '../../redux/productsSliderSlice';
 import AnimatedText from '../../components/animatedText';
-import Slider from '../../components/productsSlider'
-import Link from 'next/link';
-import Image from 'next/image'
-import cart from '../../../public/images/cart.png'
+import Slider from '../../components/productsSlider';
+import Image from 'next/image';
+import cart from '../../../public/images/cart.png';
+import { productsCount } from '../../redux/productsSlice'; 
+import SuccessIcon from '../../components/svg/successIcon';
 
 interface Props {
   params: {
@@ -45,6 +45,8 @@ export default function Product({ params }: Props) {
   const getSliderItems = useSelector(getProductsSliderItems)
   const [currentProduct, setCurrentProduct] = useState<DataItem | null>(null);
   const [selectedSizeIndex, setSelectedSizeIndex] = useState<number | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  
  
   const products = "products"; 
   const sliderItems = "products";
@@ -101,7 +103,14 @@ export default function Product({ params }: Props) {
   const addToBasketHandler = (product: DataItem) => {
     if (product) {
       dispatch(addToBasket(product as DataItem));
-      //dispatch(displayTotalCount());
+      dispatch(productsCount());
+      const modal = modalRef.current;
+      modal?.classList.add('display');
+
+      setTimeout(() => {
+        modal?.classList.remove('display');
+      }, 3000);
+      
     }
   };
 
@@ -114,6 +123,14 @@ export default function Product({ params }: Props) {
       <div className="container">
         {currentProduct && 
         <div className="flex flex-wrap justify-between py-12">
+          <div ref={modalRef} className="modal">
+            <span className="flex items-center justify-center mr-2 p-2 bg-success rounded-md">
+              <SuccessIcon/>
+            </span>
+            <span className="text-lg text-success font-bold">
+              Product has been added to the cart
+            </span>
+          </div>
           <div className="w-full md:w-2/5 mb-12 md:mb-0">
             <div className="w-full mb-12">
               <ShopProductSlider sliderParams={currentProduct.variations}/>
@@ -164,7 +181,7 @@ export default function Product({ params }: Props) {
                   <p className="text-2xl text-white font-medium mr-2">{currentProduct.quantity as number}</p>
                   <button className="text-2xl text-white font-medium" onClick={() => addProductHandler(currentProduct as DataItem)}>&#x2B;</button>
                 </div>
-                <button className="bg-yellow flex items-center justify-center sm:ml-6 py-3 px-5" onClick={() => addToBasketHandler(currentProduct as DataItem)}>
+                <button className="bg-yellow flex items-center justify-center sm:ml-6 py-3 px-5 hover:bg-orange transition duration-200" onClick={() => addToBasketHandler(currentProduct as DataItem)}>
                   <span className="mr-3">
                     <Image
                       src={cart}

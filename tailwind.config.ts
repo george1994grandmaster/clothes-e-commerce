@@ -12,16 +12,21 @@ const config: Config = {
         lightGrey: "rgba(255, 255, 255, 0.8)",
         dark: '#1D1D1D',
         yellow: '#D9EC00',
-        orange: '#CB5B1'
+        orange: '#cb5b1a',
+        success: '#00381f'
       },
       colors: {
         dark: '#1D1D1D',
         lightGrey: "rgba(255, 255, 255, 0.8)",
         darkGrey: "rgba(163, 160, 160, 0.8)",
         yellow: "#D9EC00",
+        orange: '#cb5b1a',
+        darkTransparent: "#4F4F4F",
+        success: '#00381f'
       },
       borderColor: {
         yellow: '#D9EC00',
+        orange: '#cb5b1a'
       },
       boxShadow: {
         shadow: "0 0 10px hsla(0,0%,50%,.5)",

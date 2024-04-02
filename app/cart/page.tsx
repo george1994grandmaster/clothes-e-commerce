@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation'
 import {addProduct, decreaseProduct} from '../redux/productsSlice'; 
 import AnimatedText from '../components/animatedText';
 import Image from 'next/image'
+import RemoveBox from '../components/svg/removeBox';
+
 
 interface DataItem {
   id: number;
@@ -17,17 +20,18 @@ interface DataItem {
 
 
 export default function GetCategorieResult() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const [getCartFromStorage, setCartFromLocalStorage] = useState<DataItem[]>([]);
   const [totalPrice, setTotalPrice] = useState<any>(0);
 
  
   useEffect(() => {
-    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
+    let cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
     setCartFromLocalStorage(cartFromLocalStorage);
-  }, []); 
+  },[]); 
 
-  
+ 
   useEffect(() => {
     const totalSum = getCartFromStorage.reduce((accumulator: any, currentItem: any) => {
       const price = parseFloat(currentItem.price.replace(',', '.'));
@@ -43,7 +47,7 @@ export default function GetCategorieResult() {
   const addProductCount = (product: DataItem) => {
     if (product.quantity) {
       dispatch(addProduct(product as DataItem));
-      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
+      let cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
       setCartFromLocalStorage(cartFromLocalStorage);
     }
   }
@@ -51,11 +55,18 @@ export default function GetCategorieResult() {
   const decreaseProductCount = (product: DataItem) => {
     if (product.quantity && product.quantity > 1) {
       dispatch(decreaseProduct(product as DataItem));
-      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
+      let cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
       setCartFromLocalStorage(cartFromLocalStorage);
     }
   }
 
+
+  const removeProduct = (id: number) => {
+    let cartFromLocalStorage: DataItem[] = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
+    cartFromLocalStorage = cartFromLocalStorage.filter(item => item.id !== id);
+    localStorage.setItem('cart', JSON.stringify(cartFromLocalStorage));
+    setCartFromLocalStorage(cartFromLocalStorage);
+  }
   
   
   return (
@@ -87,14 +98,19 @@ export default function GetCategorieResult() {
                         </div>
                         <div className="flex-auto">
                           <p className="text-xl text-white font-medium mb-3">{item.title}</p>
-                          <p className="text-xl text-white font-medium mb-8"><span className="mr-2">Price:</span> {item.price}</p>
+                          <p className="text-xl text-white font-medium mb-8"><span className="mr-2">Price:</span> $ {item.price}</p>
                           <div className="flex items-center">
                             <div className="flex items-center mr-10">
-                              <button className="mr-2" onClick={() => addProductCount(item)}>+</button>
+                              <button className="mr-2" onClick={() => addProductCount(item)}>&#x2B;</button>
                               <p className="mr-2 text-xl text-white font-medium">{item.quantity}</p>
-                              <button onClick={() => decreaseProductCount(item)}>-</button>
+                              <button onClick={() => decreaseProductCount(item)}>&#8722;</button>
                             </div>
-                            <button className="text-xl text-white font-medium">Remove</button>
+                            <button className="flex items-center hover-remove" onClick={ () => removeProduct(item.id)}>
+                              <span className="mr-2">
+                                <RemoveBox/>
+                              </span>
+                              <span className="text-xl text-white font-medium">Remove</span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -118,7 +134,7 @@ export default function GetCategorieResult() {
                       <span className="text-xl font-medium">${totalPrice}</span>
                     </div>
                   </div>
-                  <button className="w-full bg-yellow text-dark py-3 px-5 text-center font-bold">CHECKOUT</button>
+                  <button className="w-full bg-yellow text-dark py-3 px-5 text-center font-bold hover:bg-orange transition duration-200" onClick={() => router.push('/checkout')}>CHECKOUT</button>
                 </div>
                 }
               </div>

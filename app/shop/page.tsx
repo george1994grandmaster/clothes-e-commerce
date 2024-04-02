@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, getProductItems, } from '../redux/productsSlice'; 
 import { getSliderProducts, getProductsSliderItems  } from '../redux/productsSliderSlice'; 
@@ -15,7 +14,6 @@ import ProductsMenu from '../components/productsMenu'
 
 export default function Shop() {
 
-  const router = useRouter()
   const dispatch = useDispatch();
   const productsData = useSelector(getProductItems);
   const bannerImg = useSelector(getAllData);
@@ -34,13 +32,6 @@ export default function Shop() {
       .then(() => dispatch(getData({ param }) as any))
       .then(() => dispatch(getSliderProducts({ sliderItems }) as any));
   }, [dispatch, param, products, dataCount, sliderItems]);
-
-
-  /*const getSelectedProducts = (item: string) => {
-    
-    //dispatch(getProducts({ products, productCategory: item.toLowerCase() }) as any);
-    router.push('/category')}
-  };*/
 
   return (
     <>

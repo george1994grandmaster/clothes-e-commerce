@@ -18,7 +18,7 @@ interface DataState {
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
   cart: DataItem[],
-  productQuantity: DataItem[],
+  productQuantity: any,
 }
 
 const initialState: DataState = {
@@ -27,7 +27,7 @@ const initialState: DataState = {
   status: 'idle',
   error: null,
   cart: [],
-  productQuantity: []
+  productQuantity: null,
 };
 
 export const getProducts = createAsyncThunk('products/getProducts', async ({ products, productCategory, dataCount }: { products: string; productCategory?: string; dataCount?: number }) => {
@@ -103,7 +103,7 @@ const productSlice = createSlice({
         localStorage.setItem('cart', JSON.stringify(cartFromLocalStorage));
       }
     },
-    
+
     addToBasket: (state, action: PayloadAction<DataItem>) => {
       const currentProduct = { ...action.payload };
       const formattedPrice = parseFloat(currentProduct.price.replace(/[^0-9,.]+/g, '').replace(',', '.'));
@@ -114,7 +114,7 @@ const productSlice = createSlice({
         const updatedPriceString = updatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 });
         const updatedPriceStringWithComma = updatedPriceString.replace('.', ',');
         currentProduct.price = updatedPriceStringWithComma
-        localStorage.setItem('cart', JSON.stringify([...cartFromLocalStorage, currentProduct]));
+        localStorage.setItem('cart', JSON.stringify([currentProduct, ...cartFromLocalStorage ]));
       }else {
         existingProduct.quantity += currentProduct.quantity;
         const updatedPrice = formattedPrice * existingProduct.quantity;
@@ -124,6 +124,13 @@ const productSlice = createSlice({
         localStorage.setItem('cart', JSON.stringify(cartFromLocalStorage));
       }
     },
+
+    productsCount: (state) => {
+      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
+      state.productQuantity = cartFromLocalStorage. length;
+      console.log(state.productQuantity)
+    },
+
   },
   extraReducers: (builder) => {
     builder
@@ -149,8 +156,9 @@ const productSlice = createSlice({
 });
 
 export default productSlice.reducer;
-export const { addQuantity, decreaseQuantity, addToBasket, addProduct, decreaseProduct } = productSlice.actions;
+export const { addQuantity, decreaseQuantity, addToBasket, addProduct, decreaseProduct, productsCount } = productSlice.actions;
 export const loading = (state: RootStore) => state.product.status;
 export const getProductItems = (state: RootStore) => state.product.products;
 export const getSelectedProduct = (state: RootStore) => state.product.selectedProducts;
+export const getProductsQuantity = (state: RootStore) => state.product.productQuantity;
 export const getProductCart = (state: RootStore) => state.product.cart;

@@ -124,13 +124,13 @@ p, span, h1, h2, h3, h4, h5, a{
   }
 }
 
-.layout-img img{
+.layout-img img {
   height: auto !important;
 }
 
 @media(min-width: 992px) {
   .layout-img img{
-    height: 20vw !important;
+    height: 300px!important;
   }
 }
 
@@ -165,6 +165,58 @@ p, span, h1, h2, h3, h4, h5, a{
   height: 150px !important;
   object-fit: contain !important;
 }
+
+.hover-remove span, svg {
+  transition: all 0.1s ease-out;
+}
+
+.hover-remove:hover span {
+  color: #cb5b1a
+}
+
+.hover-remove:hover svg {
+  fill: #cb5b1a
+}
+
+
+@keyframes hideModal {
+  0% {
+    bottom: 100%;
+  }
+  70% {
+    bottom: 70%;
+  }
+}
+
+.modal {
+  display: flex; 
+  align-items: center;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #D9EC00;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal.display {
+  bottom: 80%;
+}
+
+.logo path{
+  transition: all 0.1s ease;
+}
+
+.logo:hover path {
+  fill: #D9EC00;
+}
+
+
+
+
 
 
 

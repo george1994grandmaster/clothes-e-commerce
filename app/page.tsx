@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllData, getData } from './redux/allDataSlice'; 
-import { getProducts, getProductItems } from './redux/productsSlice'; 
+import { getProductItems } from './redux/productsSlice'; 
 import { getSliderProducts, getProductsSliderItems  } from './redux/productsSliderSlice'; 
 import AnimatedText from "./components/animatedText";
 import Slider from './components/productsSlider'
@@ -59,7 +59,7 @@ export default function Landing() {
           </div>
           <div className="container">
             <div className="py-20">
-              <div className="flex flex-wrap md:w-9/12 mx-auto">
+              <div className="md:flex flex-wrap md:w-9/12 mx-auto">
                 {landingData[0].promo && landingData[0].promo.map((item: any, index: number) => (
                 <div className="md:w-1/2 p-3 layout-img" key={index}>
                   <Image
