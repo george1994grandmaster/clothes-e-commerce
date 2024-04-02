@@ -40,6 +40,14 @@ body {
   padding-right: 30px;
 }
 
+@media(max-width: 720px) {
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 img {
   display: block;
   width: 100%;
