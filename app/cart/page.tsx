@@ -7,17 +7,7 @@ import {addProduct, decreaseProduct} from '../redux/productsSlice';
 import AnimatedText from '../components/animatedText';
 import Image from 'next/image'
 import RemoveBox from '../components/svg/removeBox';
-
-
-interface DataItem {
-  id: number;
-  title: string;
-  src: string;
-  quantity: number;
-  category: string;
-  price: string;
-}
-
+import { DataItem } from '../types';
 
 export default function GetCategorieResult() {
   const router = useRouter();

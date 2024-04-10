@@ -7,7 +7,6 @@ import { getProductItems } from './redux/productsSlice';
 import { getSliderProducts, getProductsSliderItems  } from './redux/productsSliderSlice'; 
 import AnimatedText from "./components/animatedText";
 import Slider from './components/productsSlider'
-import Link from 'next/link'
 import Image from 'next/image';
 
 

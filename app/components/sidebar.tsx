@@ -3,16 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from './svg/logo';
-
-interface Navlink {
-  label: string;
-  href: string;
-};
-
-interface NavlinkProps {
-  navlinks: Navlink[];
-};
-
+import { NavlinkProps } from '../types';
 
 export default function Sidebar({ navlinks }: NavlinkProps) {
 

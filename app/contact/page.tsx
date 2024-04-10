@@ -1,6 +1,5 @@
 import AnimatedText from '../components/animatedText';
 
-
 export default function Contact() {
 
   return (
@@ -9,8 +8,8 @@ export default function Contact() {
         <div className="py-48">
           <div className="container">
             <div className="flex flex-col items-center">
-              <p className="text-2xl text-white font-medium mb-6">Contact Us</p>
-              <p className="text-2xl text-white font-medium mb-3">+1 888 656 342</p>
+              <p className="text-2xl text-white font-medium mb-4">Contact Us</p>
+              <p className="text-2xl text-white font-medium mb-4">+1 888 656 342</p>
               <p className="text-2xl text-white font-medium"> ohamid@uioct.com</p>
             </div>
           </div>

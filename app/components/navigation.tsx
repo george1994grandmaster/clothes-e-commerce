@@ -9,24 +9,7 @@ import Sidebar from './sidebar';
 import SidebarClose from "./svg/sidebarCloce";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsQuantity, productsCount } from '../redux/productsSlice'; 
-
-interface Navlink {
-  label: string;
-  href: string;
-};
-
-interface NavlinkProps {
-  navlinks: Navlink[];
-};
-
-interface DataItem {
-  id: number;
-  title: string;
-  src: string;
-  quantity: number;
-  category: string;
-  price: string;
-}
+import { NavlinkProps } from "../types";
 
 
 export default function Navigation({ navlinks }: NavlinkProps) {

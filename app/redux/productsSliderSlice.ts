@@ -1,23 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootStore } from './store';
+import { DataItem } from '../types';
+import { ProductSliderItems } from '../types';
 
-
-interface DataItem {
-  id: number;
-  title: string;
-  src: string;
-  quantity: number;
-  category: string;
-  price: string;
-}
-
-interface SliderItems  {
-  products: DataItem[];
-  slideIndex: number;
-}
-
-const initialState: SliderItems = {
+const initialState: ProductSliderItems = {
   products: [] || null,
   slideIndex: 0
 };

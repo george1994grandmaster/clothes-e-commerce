@@ -11,43 +11,18 @@ import Image from 'next/image';
 import cart from '../../../public/images/cart.png';
 import { productsCount } from '../../redux/productsSlice'; 
 import SuccessIcon from '../../components/svg/successIcon';
+import { ProductDataItem, ProductProps, Variations } from '../../types';
 
-interface Props {
-  params: {
-    productId: string;
-  };
-}
 
-interface productSize {
-  size: string;
-}
-
-interface variations {
-  src: string;
-}
-
-interface DataItem {
-  id: number;
-  title: string;
-  src: string;
-  quantity: number;
-  category: string;
-  price: string;
-  description: string;
-  variations: variations[];
-  productSize: productSize[]
-}
-
-export default function Product({ params }: Props) {
+export default function Product({ params }: ProductProps) {
   const dispatch = useDispatch();
   const viewCurrentProduct = useSelector(getSelectedProduct)
   const getSlideIndex = useSelector(getCurrentIndex)
   const getSliderItems = useSelector(getProductsSliderItems)
-  const [currentProduct, setCurrentProduct] = useState<DataItem | null>(null);
+  const [currentProduct, setCurrentProduct] = useState<ProductDataItem | null>(null);
   const [selectedSizeIndex, setSelectedSizeIndex] = useState<number | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
   
- 
   const products = "products"; 
   const sliderItems = "products";
   const productCategory = currentProduct?.category;
@@ -71,7 +46,7 @@ export default function Product({ params }: Props) {
     if (viewCurrentProduct) {
       const productId = parseInt(params.productId);
       const currentProduct = viewCurrentProduct.find(item => item.id === productId);
-      setCurrentProduct(currentProduct as DataItem | null);
+      setCurrentProduct(currentProduct as ProductDataItem | null);
     }
   }, [viewCurrentProduct, params.productId]);
 
@@ -88,21 +63,21 @@ export default function Product({ params }: Props) {
     setSelectedSizeIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  const addProductHandler = (product: DataItem) => {
+  const addProductHandler = (product: ProductDataItem) => {
     if (product) {
       dispatch(addQuantity(product.id as number));
     }
   };
 
-  const decreaseProductHandler = (product: DataItem) => {
+  const decreaseProductHandler = (product: ProductDataItem) => {
     if (product && product.quantity > 1) {
       dispatch(decreaseQuantity(product.id as number));
     }
   };
 
-  const addToBasketHandler = (product: DataItem) => {
+  const addToBasketHandler = (product: ProductDataItem) => {
     if (product) {
-      dispatch(addToBasket(product as DataItem));
+      dispatch(addToBasket(product as  ProductDataItem));
       dispatch(productsCount());
       const modal = modalRef.current;
       modal?.classList.add('display');
@@ -136,7 +111,7 @@ export default function Product({ params }: Props) {
               <ShopProductSlider sliderParams={currentProduct.variations}/>
             </div>
             <div className="flex items-center hidden sm:block">
-              {currentProduct.variations && currentProduct.variations.map((item: variations, idx: number) => (
+              {currentProduct.variations && currentProduct.variations.map((item: Variations, idx: number) => (
                 <button key={idx} className={`variation-img w-2/6 p-3 transition duration-150 ease-out ${idx === getSlideIndex ? 'shadow-hoverShadow' : ''}`}
                   onClick={() => changeCurrentImg(idx)}
                 >
@@ -177,11 +152,11 @@ export default function Product({ params }: Props) {
               <p className="text-3xl text-white font-bold mb-4 sm:mb-0">$ {currentProduct.price as string}</p>
               <div className="flex sm:items-center flex-col sm:flex-row">
                 <div className="flex items-center mb-4 sm:mb-0">
-                  <button className="text-2xl text-white font-medium mr-2" onClick={() => decreaseProductHandler(currentProduct as DataItem)}>&#8722;</button>
+                  <button className="text-2xl text-white font-medium mr-2" onClick={() => decreaseProductHandler(currentProduct as ProductDataItem)}>&#8722;</button>
                   <p className="text-2xl text-white font-medium mr-2">{currentProduct.quantity as number}</p>
-                  <button className="text-2xl text-white font-medium" onClick={() => addProductHandler(currentProduct as DataItem)}>&#x2B;</button>
+                  <button className="text-2xl text-white font-medium" onClick={() => addProductHandler(currentProduct as ProductDataItem)}>&#x2B;</button>
                 </div>
-                <button className="bg-yellow flex items-center justify-center sm:ml-6 py-3 px-5 hover:bg-orange transition duration-200" onClick={() => addToBasketHandler(currentProduct as DataItem)}>
+                <button className="bg-yellow flex items-center justify-center sm:ml-6 py-3 px-5 hover:bg-orange transition duration-200" onClick={() => addToBasketHandler(currentProduct as ProductDataItem)}>
                   <span className="mr-3">
                     <Image
                       src={cart}

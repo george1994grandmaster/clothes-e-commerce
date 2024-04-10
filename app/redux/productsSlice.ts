@@ -1,27 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction, current } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootStore } from './store';
+import { DataItem, ProductDataState } from '../types';
 
-
-interface DataItem {
-  id: number;
-  title: string;
-  src: string;
-  quantity: number;
-  category: string;
-  price: string;
-}
-
-interface DataState {
-  products: DataItem[];
-  selectedProducts: DataItem[]; 
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-  cart: DataItem[],
-  productQuantity: any,
-}
-
-const initialState: DataState = {
+const initialState: ProductDataState = {
   products: [] || null,
   selectedProducts: [] || null, 
   status: 'idle',

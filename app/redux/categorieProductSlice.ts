@@ -1,21 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { RootStore } from './store';
 import axios from 'axios';
+import { DataItem, CategorieDataState } from '../types';
 
-interface DataItem {
-  id: number;
-  title: string;
-  src: string;
-  category: string;
-}
 
-interface DataState {
-  data: DataItem[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-}
-
-const initialState: DataState = {
+const initialState: CategorieDataState = {
   data: [],
   status: 'idle',
   error: null,

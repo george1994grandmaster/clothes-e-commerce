@@ -1,4 +1,3 @@
-import Navigation from './navigation'
 import Link from 'next/link';
 import FooterLogo from './svg/footerLogo'
 

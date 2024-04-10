@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'
+import { useEffect, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, getProductItems, } from '../../../redux/productsSlice'; 
 import { getSliderProducts, getProductsSliderItems  } from '../../../redux/productsSliderSlice'; 
@@ -11,13 +10,10 @@ import AnimatedText from "../../../components/animatedText";
 import Link from 'next/link'
 import Image from 'next/image';
 import ProductsMenu from '../../../components/productsMenu'
+import { CategoryNameProps } from '../../../types';
 
-interface Props {
-  params: {
-    categoryName: string;
-  };
-}
-export default function ProductCategory ({ params }: Props) {
+
+export default function ProductCategory ({ params }: CategoryNameProps) {
   const dispatch = useDispatch();
   const productsData = useSelector(getProductItems);
   const bannerImg = useSelector(getAllData);

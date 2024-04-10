@@ -12,7 +12,6 @@ const initialState: DataState = {
 };
 
 
-
 export const getProductBySearch = createAsyncThunk(
   'letter/fetchProductByLetter',
   async ({ product, productQuery }: { product: string; productQuery: string }) => {

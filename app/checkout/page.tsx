@@ -3,22 +3,12 @@
 
 import { useEffect, useState } from 'react';
 import AnimatedText from '../components/animatedText';
-
-interface DataItem {
-  id: number;
-  title: string;
-  src: string;
-  quantity: number;
-  category: string;
-  price: string;
-}
-
+import { DataItem } from '../types';
 
 export default function Checkout() {
 
   const [getCartFromStorage, setCartFromLocalStorage] = useState<DataItem[]>([]);
   const [totalPrice, setTotalPrice] = useState<any>(0);
-
 
   useEffect(() => {
     const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');

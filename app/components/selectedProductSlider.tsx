@@ -11,7 +11,6 @@ import 'swiper/css/navigation';
 import { SliderItems, variations } from '../types';
 import SelectedProductLeftArrow  from './svg/selectedSliderLeftArrow';
 import SelectedProductRightArrow  from './svg/selectedSliderRightArrow';
-import Link from 'next/link'
 import Image from 'next/image';
 
 SwiperCore.use([Navigation]);
