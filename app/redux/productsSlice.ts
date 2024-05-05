@@ -109,8 +109,7 @@ const productSlice = createSlice({
 
     productsCount: (state) => {
       const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
-      state.productQuantity = cartFromLocalStorage. length;
-      console.log(state.productQuantity)
+      state.productQuantity = cartFromLocalStorage.length;
     },
 
   },

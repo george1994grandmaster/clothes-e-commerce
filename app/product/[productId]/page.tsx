@@ -85,7 +85,6 @@ export default function Product({ params }: ProductProps) {
       setTimeout(() => {
         modal?.classList.remove('display');
       }, 3000);
-      
     }
   };
 

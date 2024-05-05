@@ -67,7 +67,7 @@ export const posts = [
         title: "Wool Cuffed Beanie",
         category: "winterhats",
         src: "/images/Wool_Cuffed_Beanie_hat.png",
-        price: "2,789",
+        price: "12,78",
         description: "Introducing our Wool Cuffed Beanie Hat - a perfect blend of style and warmth for chilly days. Crafted with high-quality wool, this beanie offers a snug fit to keep you cozy in colder weather. The cuffed design adds a touch of fashion, making it a versatile accessory to effortlessly pair with any outfit. Stay stylish and warm with our Wool Cuffed Beanie Hat - the must-have accessory for the season!",
         variations: [
           {
@@ -97,7 +97,7 @@ export const posts = [
         title: "Unisex The North Face Salty Dog Beanie",
         category: "winterhats",
         src: "/images/Unisex The North Face Salty Dog Beanie.png",
-        price: "5,362",
+        price: "14,32",
         description: "Introducing the Unisex The North Face Salty Dog Beanie - a cozy and stylish winter essential for your cold-weather adventures. Crafted with high-quality materials, this beanie combines warmth with a touch of rugged outdoor style. Designed to keep you warm in chilly temperatures, the Salty Dog Beanie offers comfort for all your winter activities. Its durable construction ensures longevity, making it a reliable companion to withstand the winter elements. Featuring a classic beanie silhouette with a rib-knit pattern, it adds a timeless touch to your winter wardrobe. Suitable for various outdoor activities or casual outings, the Unisex The North Face Salty Dog Beanie is a versatile accessory. Embrace the winter season with warmth and style, courtesy of The North Face.",
         variations: [
           {
@@ -127,7 +127,7 @@ export const posts = [
         title: "Puma Running Unisex",
         category: "caps",
         src: "/images/PUMA_Running_Unisex_Cap2.png",
-        price: "4,768",
+        price: "13,87",
         description: "Introducing the Puma Running Unisex Cap - a perfect blend of sporty style and functionality. Crafted for runners, this cap provides comfort and performance during your active pursuits. Breathable fabric keeps you cool, and moisture-wicking technology ensures you stay dry. The adjustable strap offers a customized fit, and the iconic Puma logo adds a touch of athletic style. Ideal for running, jogging, or any outdoor activity, the Puma Running Unisex Cap is a must-have for your sportswear collection.",
         variations: [
           {
@@ -157,7 +157,7 @@ export const posts = [
         title: "Eddie Bauer Truckee Faux Fur Trapper",
         category: "winterhats",
         src: "/images/Eddie_Bauer_Truckee_Faux_Fur_Trapper_Hat.png",
-        price: "5,362",
+        price: "10,54",
         description: "Introducing the Eddie Bauer Truckee Faux Fur Trapper Hat - a stylish and cozy addition to your winter wardrobe. Crafted with attention to detail, this trapper hat combines fashion with functionality. The warm faux fur lining adds a touch of luxury and comfort, while the classic trapper style provides extra protection against cold winds. Perfect for outdoor activities, winter adventures, or just adding a chic touch to your cold-weather ensemble. Made with quality materials to ensure longevity and withstand the elements, the Eddie Bauer Truckee Faux Fur Trapper Hat is a timeless accessory for the colder months.",
         variations: [
           {
@@ -187,7 +187,7 @@ export const posts = [
         title: "Puma Evercat Running",
         category: "caps",
         src: "/images/puma_Evercat_Running_Cap2.png",
-        price: "5,362",
+        price: "12,93",
         description: "Introducing the Puma Evercat Running Cap - a sleek and functional accessory designed for your active lifestyle. Crafted with performance in mind, this running cap enhances your running experience with comfort and style. Stay cool and focused during your runs with the breathable fabric construction. The moisture-wicking technology keeps sweat at bay, ensuring you stay dry and comfortable throughout your workout. The cap features an adjustable strap for a personalized and secure fit, making it suitable for all head sizes. The iconic Puma logo adds a touch of athletic flair, making it a versatile choice for your running gear.  Elevate your running sessions with the Puma Evercat Running Cap - the perfect blend of performance and style for every fitness enthusiast.",
         variations: [
           {
@@ -217,7 +217,7 @@ export const posts = [
         title: "Genuine Panama",
         category: "hats",
         src: "/images/Genuine_Panama_Hat2.png",
-        price: "5,362",
+        price: "15,24",
         description: "Introducing the Genuine Panama Hat - a timeless and sophisticated accessory handwoven with precision by master artisans. Lightweight and breathable, it complements any outfit with classic elegance. Versatile for both casual and formal wear, its traditional silhouette offers style and sun protection. Elevate your look with the understated charm of the Genuine Panama Hat.",
         variations: [
           {
@@ -247,7 +247,7 @@ export const posts = [
         title: "Nike Heritage86",
         category: "caps",
         src: "/images/nike-Heritage86_Cap.png",
-        price: "5,362",
+        price: "10,23",
         description: "Introducing the Nike Heritage86 Cap - a sleek and sporty accessory designed to complement your active lifestyle. Crafted with a focus on comfort and style, this cap is an essential addition to your casual wardrobe. The Heritage86 Cap offers a comfortable and secure fit for everyday wear. Featuring Nike's timeless design, this cap effortlessly blends sporty and casual aesthetics. Equipped with an adjustable strap for a personalized fit, ensuring comfort for all head sizes. Made with breathable materials, it keeps you cool during your daily activities. Elevate your everyday look with the Nike Heritage86 Cap - a perfect fusion of comfort, style, and sporty flair.",
         variations: [
           {
@@ -277,7 +277,7 @@ export const posts = [
         title: "Originals Relaxed Strapback",
         category: "caps",
         src: "/images/Originals_Relaxed_Strapback_Cap1.png",
-        price: "5,362",
+        price: "15,78,",
         description: "Introducing the Originals Relaxed Strapback Cap - a laid-back and stylish accessory that effortlessly completes your casual look. Crafted with a relaxed fit and classic design, this cap is the perfect blend of comfort and fashion. Featuring a timeless and versatile design, it effortlessly elevates your casual style. The cap comes with an adjustable strap for a customized fit, catering to various head sizes. Made with quality materials, this cap promises longevity and resilience for your everyday adventures. Ideal for any casual occasion, the Originals Relaxed Strapback Cap is a go-to accessory for a relaxed and fashionable look. Complete your casual ensemble with the easygoing charm of the Originals Relaxed Strapback Cap.",
         variations: [
           {
@@ -337,7 +337,7 @@ export const posts = [
         title: "Class V Reversible Bucket",
         category: "hats",
         src: "/images/Class_V_Reversible_Bucket_Hat.png",
-        price: "5,362",
+        price: "11,68",
         description: "Introducing the Class V Reversible Bucket Hat - a versatile and stylish accessory for your outdoor adventures. This hat offers a contemporary take on the classic bucket hat design, providing you with two looks in one. Crafted with attention to detail, it features a dual-sided design for flexible styling, ensuring a comfortable fit for all-day wear. Made with high-quality materials, this bucket hat is durable and reliable for various outdoor activities. Embrace the outdoors with confidence and style by donning the Class V Reversible Bucket Hat - a modern twist on a classic accessory.",
         variations: [
           {
@@ -367,7 +367,7 @@ export const posts = [
         title: "Black Wool Trilby",
         category: "hats",
         src: "/images/black_wool_trilby_hat1.png",
-        price: "5,362",
+        price: "10,76",
         description: "Introducing the Black Wool Trilby Hat - a classic and sophisticated accessory that adds a touch of timeless elegance to your look. Crafted with high-quality wool, this trilby hat is versatile and stylish, making it a wardrobe staple. The trilby hat features a timeless and iconic design that complements various outfits. Crafted with premium wool material, ensuring both comfort and durability. Suitable for both formal and casual occasions, making it a versatile addition to your wardrobe. The black color adds a sleek and elegant touch, elevating your overall aesthetic. Designed for comfort, the hat provides a snug and stylish fit for any head size. Complete your ensemble with the sophistication of the Black Wool Trilby Hat - a classic accessory that stands the test of time.",
         variations: [
           {
@@ -397,7 +397,7 @@ export const posts = [
         title: "Straw Rolled Cowboy",
         category: "hats",
         src: "/images/Straw_Rolled_Cowboy_Hat.png",
-        price: "1,879",
+        price: "12,83",
         description: "Introducing our Straw Rolled Cowboy Hat - a blend of Western charm and casual style. Crafted with quality straw, this hat adds a touch of rugged elegance to your look. The rolled brim and crown give it that iconic cowboy hat appeal, perfect for a laid-back yet stylish vibe. Elevate your style with the timeless appeal of our Straw Rolled Cowboy Hat - a fashion statement that transcends seasons.",
         variations: [
           {

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation'
+import { productsCount } from '../redux/productsSlice'; 
 import {addProduct, decreaseProduct} from '../redux/productsSlice'; 
 import AnimatedText from '../components/animatedText';
 import Image from 'next/image'
@@ -50,12 +51,12 @@ export default function GetCategorieResult() {
     }
   }
 
-
   const removeProduct = (id: number) => {
     let cartFromLocalStorage: DataItem[] = JSON.parse(localStorage.getItem('cart') || '[]') as DataItem[];
     cartFromLocalStorage = cartFromLocalStorage.filter(item => item.id !== id);
     localStorage.setItem('cart', JSON.stringify(cartFromLocalStorage));
     setCartFromLocalStorage(cartFromLocalStorage);
+    dispatch(productsCount());
   }
   
   

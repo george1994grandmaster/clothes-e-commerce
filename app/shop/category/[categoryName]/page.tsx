@@ -54,7 +54,7 @@ export default function ProductCategory ({ params }: CategoryNameProps) {
             </div>
             <div className="">
               <p className="text-lg font-medium text-lightGrey mb-2"> {item.title}</p>
-              <p className="text-lg font-medium text-lightGrey"> {item.price}</p>
+              <p className="text-lg font-medium text-lightGrey">$ {item.price}</p>
             </div>
           </Link>
         </div>
