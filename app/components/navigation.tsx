@@ -51,7 +51,7 @@ export default function Navigation({ navlinks }: NavlinkProps) {
               return (
                 <>
                   <li key={idx} className="mr-7">
-                    <Link href={link.href} className={`relative p-1 text-2xl text-white font-medium hover:text-yellow transition duration-100 ${isActive ? 'text-yellow' : ''}`}>
+                    <Link href={link.href} className={`relative p-1 text-2xl font-medium hover:text-yellow transition duration-100 ${isActive ? 'text-yellow' : 'text-white'}`}>
                       {link.label}
                       {link.label === "Cart" && (
                       <span className="absolute bottom-3/4 right-0 bg-transparent text-yellow font-bold text-lg rounded-full">
